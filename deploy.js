@@ -18,12 +18,27 @@ async function main() {
       "./SimpleStorage_sol_SimpleStorage.bin",
       "utf8"
     );
+    //contract deployment
     const contractFactory = new ethers.ContractFactory(abi, binary, wallet);
     const contract = await contractFactory.deploy();
-    await contract.deploymentTransaction()?.wait(1);
-    const currentBigNumber = await contract.retrieve();
-    console.log(currentBigNumber.toString());
-    console.log(typeof currentBigNumber);
+    const deploymentReceipt = await contract.deploymentTransaction()?.wait(1); //wait one block
+    console.log(deploymentReceipt);
+
+    //contract abi(store) call
+    const storeBigNumber = await contract.store(206);
+    await storeBigNumber.wait(1); // wait one block
+
+    //contract abi(retrieve) call
+    const retrieveBigNumber = await contract.retrieve();
+    console.log(`Stored bigNumber is: ${retrieveBigNumber}`);
+
+    //contract abi(addPerson) call
+    const person = await contract.addPerson(206, "Ndubuisi");
+    await person.wait(1); // wait one block
+
+    //contract abi(retrievePerson) call
+    const personRetrieved = await contract.retrievePerson(0);
+    console.log(`The person retrieved is: ${personRetrieved}`);
   } catch (error) {
     console.error("error caught:", error);
     process.exit(1);
