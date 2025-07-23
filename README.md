@@ -1,4 +1,4 @@
-A SIMPLE SMART CONTRACT WRITTEN IN SOLIDITY AND JAVASCRIPT
+A SIMPLE STORAGE SMART CONTRACT WRITTEN IN SOLIDITY AND JAVASCRIPT
 
 //Deploying to a testnet
 Make sure you have a metamask or other wallet, and export the private key.
