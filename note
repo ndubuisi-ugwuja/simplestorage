@@ -1,0 +1,2 @@
+solc is used to compile solidity code into abi and bytecode(binary). The later is what gets deployed on the Ethereum virtual mechine
+fs helps us deploy the code on EVM
