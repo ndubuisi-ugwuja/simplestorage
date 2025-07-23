@@ -1,13 +1,15 @@
 import { ethers } from "ethers";
 import fs from "fs-extra";
+import "dotenv/config";
 
 async function main() {
   try {
-    const INFURA_ID = "your infura id";
+    const { INFURA_ID } = process.env;
     const provider = new ethers.JsonRpcProvider(
       `https://sepolia.infura.io/v3/${INFURA_ID}`
     );
-    const wallet = new ethers.Wallet("your private key", provider);
+    const { PRIVATE_KEY } = process.env;
+    const wallet = new ethers.Wallet(PRIVATE_KEY, provider);
     const abi = fs.readFileSync(
       "./SimpleStorage_sol_SimpleStorage.abi",
       "utf8"
