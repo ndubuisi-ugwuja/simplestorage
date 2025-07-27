@@ -4,11 +4,10 @@ import "dotenv/config";
 
 async function main() {
   try {
-    const { INFURA_ID } = process.env;
+    const { INFURA_ID, PRIVATE_KEY } = process.env;
     const provider = new ethers.JsonRpcProvider(
       `https://sepolia.infura.io/v3/${INFURA_ID}`
     );
-    const { PRIVATE_KEY } = process.env;
     const wallet = new ethers.Wallet(PRIVATE_KEY, provider);
     const abi = fs.readFileSync(
       "./SimpleStorage_sol_SimpleStorage.abi",
@@ -46,3 +45,6 @@ async function main() {
 }
 
 main();
+
+// INFURA_ID=3e1369403dca4765b938531a0b24b161
+// PRIVATE_KEY=0ec981b8478b9bbf1a738e28f1835d9179a397a24cdf5418635ce74a8cda657f
