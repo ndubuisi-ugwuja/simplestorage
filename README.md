@@ -1,18 +1,124 @@
-A SIMPLE STORAGE SMART CONTRACT WRITTEN IN SOLIDITY AND JAVASCRIPT
+# 🧠 SimpleStorage Smart Contract
 
-//Deploying to a testnet
-Make sure you have a metamask or other wallet, and export the private key.
+This project demonstrates the use of a Solidity smart contract to store and retrieve structured data on the Ethereum blockchain using **Ethers.js** for interaction and **Solc** for compilation.
+Built by **Ndubuisi Ugwuja**
 
-IMPORTANT
+---
 
-USE A METAMASK THAT DOESNT HAVE ANY REAL FUNDS IN IT. Just in case you accidentally push your private key to a public place. I highly recommend you use a different metamask or wallet when developing.
+## 📝 Contract Summary
 
-Export your private key and place it in your .env file, as done above.
+The `SimpleStorage` smart contract supports:
 
-Go to Alchemy and create a new project on the testnet of choice (ie, Sepolia)
+- Storing a `uint256` value on-chain
+- Saving structured data (people with name + number)
+- Mapping names to values
+- Reading back stored and structured values
 
-Grab your URL associated with the testnet, and place it into your .env file.
+### 🔍 Contract Features
 
-Make sure you have testnet ETH in your account. You can get some here. You should get testnet ETH for the same testnet that you made a project in Alchemy (ie, Sepolia)
+```solidity
+uint256 public bigNumber;
+struct People {
+    uint256 bigNumber;
+    string name;
+}
+People[] public people;
+mapping(string => uint256) public nameToBigNumber;
+function store(uint256 _bigNumber) public;
+function retrieve() public view returns (uint256);
+function addPerson(uint256 _bigNumber, string memory _name) public;
+function retrievePerson(uint256 _index) public view returns (uint256, string memory);
+```
 
-Run node deploy.js
+```
+bash
+git clone https://github.com/astrohub-dev/simplestorage.git
+cd simplestorage
+```
+
+⚙️ Setup Instructions
+
+1. 📦 Install Dependencies
+
+```
+bash
+yarn install ethers fs-extra dotenv
+or:
+npm install ethers fs-extra dotenv
+```
+
+2. 📄 Create a .env File
+
+Create a .env file in the root directory and add the following:
+
+```
+env
+INFURA_ID=your_infura_project_id
+PRIVATE_KEY=your_wallet_private_key
+```
+
+⚠️ Do not share your .env file or commit it to GitHub.
+
+3. 🛠 Compile Your Contract
+
+Use solc-js or your preferred compiler to generate:
+
+    •	SimpleStorage_sol_SimpleStorage.abi
+    •	SimpleStorage_sol_SimpleStorage.bin
+
+Example with solc-js CLI:
+
+```
+bash
+npx solcjs --abi --bin --include-path node_modules/ --base-path . -o . SimpleStorage.sol
+```
+
+🚀 Deploy & Interact
+
+Run the deploy script:
+
+```
+bash
+node deploy.js
+```
+
+🔧 What the Script Does:
+
+    •	Reads ABI & Bytecode from compiled files
+    •	Connects to Sepolia testnet via Infura
+    •	Deploys the SimpleStorage contract
+    •	Stores a number 206 using store()
+    •	Retrieves the stored number using retrieve()
+    •	Adds a person Ndubuisi with number 206 using addPerson()
+    •	Retrieves that person using retrievePerson(0)
+
+🧪 Sample Output
+
+```
+bash
+{
+  ... // deployment receipt
+}
+Stored bigNumber is: 206
+The person retrieved is: [ 206, 'Ndubuisi' ]
+```
+
+🔗 Tech Stack
+
+    •	Solidity ^0.8.7
+    •	Ethers.js v6
+    •	Solc-js
+    •	Infura – for Sepolia RPC access
+    •	dotenv – for environment variables
+
+📜 License
+
+MIT License
+
+⸻
+
+🙋‍♂️ Author
+
+Ndubuisi Ugwuja
+📍 Abuja, Nigeria
+💬 Let’s connect!
