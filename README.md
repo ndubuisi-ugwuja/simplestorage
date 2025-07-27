@@ -1,7 +1,6 @@
 # 🧠 SimpleStorage Smart Contract
 
 This project demonstrates the use of a Solidity smart contract to store and retrieve structured data on the Ethereum blockchain using **Ethers.js** for interaction and **Solc** for compilation.
-Built by **Ndubuisi Ugwuja**
 
 ---
 
@@ -31,7 +30,6 @@ function retrievePerson(uint256 _index) public view returns (uint256, string mem
 ```
 
 ```
-bash
 git clone https://github.com/astrohub-dev/simplestorage.git
 cd simplestorage
 ```
@@ -41,7 +39,6 @@ cd simplestorage
 1. 📦 Install Dependencies
 
 ```
-bash
 yarn install ethers fs-extra dotenv
 or:
 npm install ethers fs-extra dotenv
@@ -52,7 +49,6 @@ npm install ethers fs-extra dotenv
 Create a .env file in the root directory and add the following:
 
 ```
-env
 INFURA_ID=your_infura_project_id
 PRIVATE_KEY=your_wallet_private_key
 ```
@@ -69,7 +65,6 @@ Use solc-js or your preferred compiler to generate:
 Example with solc-js CLI:
 
 ```
-bash
 npx solcjs --abi --bin --include-path node_modules/ --base-path . -o . SimpleStorage.sol
 ```
 
@@ -78,7 +73,6 @@ npx solcjs --abi --bin --include-path node_modules/ --base-path . -o . SimpleSto
 Run the deploy script:
 
 ```
-bash
 node deploy.js
 ```
 
@@ -95,7 +89,6 @@ node deploy.js
 🧪 Sample Output
 
 ```
-bash
 {
   ... // deployment receipt
 }
