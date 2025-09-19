@@ -1,3 +1,5 @@
 /.vscode-server/
 .env
 node_modules
+.vscode
+note

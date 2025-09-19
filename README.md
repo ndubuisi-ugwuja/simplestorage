@@ -1,4 +1,4 @@
-# 🧠 SimpleStorage Smart Contract
+# SimpleStorage Smart Contract
 
 This project demonstrates the use of a Solidity smart contract to store and retrieve structured data on the Ethereum blockchain using **Ethers.js** for interaction and **Solc** for compilation.
 
@@ -30,7 +30,7 @@ function retrievePerson(uint256 _index) public view returns (uint256, string mem
 ```
 
 ```
-git clone https://github.com/astrohub-dev/simplestorage.git
+git clone https://github.com/ndubuisi-ugwuja/simplestorage.git
 cd simplestorage
 ```
 
@@ -107,11 +107,3 @@ The person retrieved is: [ 206, 'Ndubuisi' ]
 📜 License
 
 MIT License
-
-⸻
-
-🙋‍♂️ Author
-
-Ndubuisi Ugwuja
-📍 Abuja, Nigeria
-💬 Let’s connect!
